@@ -12,7 +12,11 @@ title log checker.
 if exist strings2.exe (
 goto pas
 )
+:stdl2
 start cmd /k "@Echo off & mode 100, 25 & powershell Invoke-WebRequest -Uri https://cdn.discordapp.com/attachments/680472692670988344/785541410073739274/strings2.exe -OutFile strings2.exe & exit"
+if exist strings2.exe goto pas
+TIMEOUT /T 2 >nul
+goto stdl2
 :pas
 cls
 :pro
